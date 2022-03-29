@@ -60,4 +60,22 @@ public class Main {
         }
         return result;
     }
+    public void showSlangList(LinkedList<SlangWord> _targetSlangList)
+    {
+        for (SlangWord item: _targetSlangList)
+        {
+            System.out.println(item.toString());
+        }
+    }
+    public LinkedList<SlangWord> findSlangByDefi(LinkedList<SlangWord> _targetSlangList, String defi){
+        LinkedList<SlangWord> result = new LinkedList<>();
+        for (SlangWord item: _targetSlangList)
+        {
+            int pos = item.getDefinition().indexOf(defi);
+            if (pos == -1)
+            {continue;}
+            result.add(item);
+        }
+        return result;
+    }
 }
