@@ -136,7 +136,7 @@ public class Main {
         }
     }
     public void deleteASlang(LinkedList<SlangWord> _targetSlangList,
-                             String name){
+                            String name){
         int index = findIndexSlang(_targetSlangList, name);
         if (index != -1)
         {
@@ -171,4 +171,56 @@ public class Main {
         this.writeFile("mainhistory.txt", _targetSlangList);
         System.out.println("This history list has been reset sucessfully!!");
     }
+    public SlangWord randomSlang(LinkedList<SlangWord> _targetSlangList){
+        Random rng = new Random();
+        int index = rng.nextInt(0, _targetSlangList.size());
+        String name = _targetSlangList.get(index).getID();
+        String defi = _targetSlangList.get(index).getDefinition();
+        SlangWord todaySlang = new SlangWord(name,defi);
+        return todaySlang;
+    }
+    public void quizSlang(LinkedList<SlangWord> _targetSlangList){
+        Random rng= new Random();
+        Scanner scanner = new Scanner(System.in);
+        int score = 0;
+        boolean streak = true;
+        while (streak == true)
+        {
+            int total = _targetSlangList.size();
+            int unit = total/4;
+            LinkedList<SlangWord> _test = new LinkedList<>();
+            for (int i=0;i<4;i++)
+            {
+                int number = rng.nextInt(unit*i, unit*(i+1)-1);
+                String name = _targetSlangList.get(number).getID();
+                String defi = _targetSlangList.get(number).getDefinition();
+                _test.add(new SlangWord(name, defi));
+            }
+            int answer = rng.nextInt(0,3);
+            System.out.println("Question "+ (score+1) + ": ");
+            System.out.print("What is the Slang of this definition: ");
+            System.out.println(_test.get(answer).getDefinition());
+            for (int i=0;i<4;i++)
+            {
+                System.out.print(i+1+". "+_test.get(i).getID());
+                System.out.println();
+            }
+            System.out.printf("Your answer: ");
+            int guess = scanner.nextInt();
+            if (guess == answer+1)
+            {
+                System.out.println("Correct answer.");
+                score++;
+                System.out.println("Your score now: " + score);
+            }
+            else
+            {
+                System.out.println("Incorrect answer.");
+                System.out.println("Answer: " + (answer+1) +". " +  _test.get(answer).toString());
+                System.out.println("Your final score: " + score);
+                streak = false;
+            }
+        }
+    }
+
 }
