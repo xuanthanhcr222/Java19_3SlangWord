@@ -418,4 +418,13 @@ public class Main {
             }
         }
     }
+    public static void main(String[] args) {
+        Main myMain = new Main();
+        LinkedList<SlangWord> _myList = new LinkedList<>();
+        LinkedList<SlangWord> _myHistory = new LinkedList<>();
+        _myList = myMain.readFile("mainslang.txt");
+        _myHistory = myMain.readFile("mainhistory.txt");
+        myMain.writeFile("mainslang.txt",_myList);
+        myMain.Menu(_myList, _myHistory);
+    }
 }
