@@ -119,7 +119,20 @@ public class Main {
         {
             _targetSlangList.add(new SlangWord(name, defi));
             System.out.println("Add new slang sucessfully!!");
-	    //OK for add
+        }
+    }
+    public void editASlang(LinkedList<SlangWord> _targetSlangList,
+                           String name, String defi){
+        int index = findIndexSlang(_targetSlangList, name);
+        if (index != -1)
+        {
+            _targetSlangList.get(index).setDefinition(defi);
+            System.out.println("Edit slang sucessfully!!");
+
+        }
+        else
+        {
+            System.out.println("This Slang has not been exist. Use Add to insert or try something else!");
         }
     }
     
