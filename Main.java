@@ -103,4 +103,23 @@ public class Main {
         }
         return result;
     }
+
+    public void findHistory(LinkedList<SlangWord> _targetSlangList)
+    {
+        showSlangList(_targetSlangList);
+    }
+    public void addASlang(LinkedList<SlangWord> _targetSlangList,
+                          String name, String defi){
+        int index = findIndexSlang(_targetSlangList, name);
+        if (index != -1)
+        {
+            System.out.println("This Slang has been exist. Use Edit to edit or try something else!");
+        }
+        else
+        {
+            _targetSlangList.add(new SlangWord(name, defi));
+            System.out.println("Add new slang sucessfully!!");
+        }
+    }
+   
 }
