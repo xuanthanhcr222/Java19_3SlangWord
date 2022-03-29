@@ -119,7 +119,8 @@ public class Main {
         {
             _targetSlangList.add(new SlangWord(name, defi));
             System.out.println("Add new slang sucessfully!!");
+	    //OK for add
         }
     }
-   
+    
 }
