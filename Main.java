@@ -135,5 +135,30 @@ public class Main {
             System.out.println("This Slang has not been exist. Use Add to insert or try something else!");
         }
     }
+    public void deleteASlang(LinkedList<SlangWord> _targetSlangList,
+                             String name){
+        int index = findIndexSlang(_targetSlangList, name);
+        if (index != -1)
+        {
+            System.out.println("This is Slang you find");
+            System.out.println(_targetSlangList.get(index).toString());
+            System.out.println("Do you want to delete: (1)-YES & (0)-NO");
+            Scanner scanner = new Scanner(System.in);
+            int decision = scanner.nextInt();
+            if (decision == 1)
+            {
+                _targetSlangList.remove(index);
+                System.out.println("Delete sucessfully!");
+            }
+            else
+            {
+                System.out.println("Cancel delete!!");
+            }
+        }
+        else
+        {
+            System.out.println("This Slang has not been exist. Try something else!");
+        }
+    }
     
 }
