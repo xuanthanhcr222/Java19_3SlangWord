@@ -160,5 +160,15 @@ public class Main {
             System.out.println("This Slang has not been exist. Try something else!");
         }
     }
-    
+    public void reset(LinkedList<SlangWord> _targetSlangList) {
+        _targetSlangList = this.readFile("slang.txt");
+        this.writeFile("mainslang.txt", _targetSlangList);
+        System.out.println("This slang list has been reset sucessfully!!");
+    }
+    public void resetHistory(LinkedList<SlangWord> _targetSlangList)
+    {
+        _targetSlangList.clear();
+        this.writeFile("mainhistory.txt", _targetSlangList);
+        System.out.println("This history list has been reset sucessfully!!");
+    }
 }
