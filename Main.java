@@ -78,4 +78,29 @@ public class Main {
         }
         return result;
     }
+    public int findIndexSlang(LinkedList<SlangWord> _targetSlangList,
+                              String name)
+    {
+        int result = -1;
+        for (int i=0;i< _targetSlangList.size();i++)
+        {
+            String buffer = _targetSlangList.get(i).getID();
+            if (buffer.equals(name)== true) {
+                result = i;
+                break;
+            }
+        }
+        return result;
+    }
+    public LinkedList<SlangWord> findSlangByName(LinkedList<SlangWord> _targetSlangList,
+                                                 String name, LinkedList<SlangWord> _targetHistory){
+        LinkedList<SlangWord> result = new LinkedList<>();
+        int index = findIndexSlang(_targetSlangList, name);
+        if (index != -1)
+        {
+            result.add(_targetSlangList.get(index));
+            _targetHistory.add((_targetSlangList.get(index)));
+        }
+        return result;
+    }
 }
